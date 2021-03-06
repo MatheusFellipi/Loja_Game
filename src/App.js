@@ -1,9 +1,10 @@
 import Routes from "./routes"
+import {PurchasePriceProvider} from "./context/PurchasePrice"
 function App() {
   return (
-    <div className="App">
+    <PurchasePriceProvider>
       <Routes />
-    </div>
+    </PurchasePriceProvider>
   );
 }
 
