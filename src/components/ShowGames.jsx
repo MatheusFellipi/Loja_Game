@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { purchasePrice  } from '../Context';
+import { purchasePrice  } from '../context/PurchasePrice';
 import dadosGames from "../products.json"
 
 

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { purchasePrice } from "../Context";
+import { purchasePrice } from "../context/PurchasePrice";
 import { Header } from "../components";
 
 function Car() {
