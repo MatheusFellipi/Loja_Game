@@ -1,1 +1,25 @@
-import styled from "styled-components"
+import styled from "styled-components";
+
+export const ListPurchase = styled.div`
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 1rem;
+`;
+export const Item = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: 1rem 1rem;
+  border-bottom: solid 1px #dfe2e8;
+`;
+export const BuyMore = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 5rem;
+`;
+export const BackIcon = styled.img`
+  width:15px;
+  height:15px;
+`;

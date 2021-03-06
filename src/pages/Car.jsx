@@ -3,37 +3,53 @@ import { Link } from "react-router-dom";
 import { purchasePrice } from "../context/PurchasePrice";
 import { Header } from "../components";
 
+import { ListPurchase, Item ,BuyMore,BackIcon} from "../styles/pages/stylesCar";
+import backIcon from "../assets/back.png"
+
 function Car() {
-  const { product } = useContext(purchasePrice);
+  const { product, freight, price,priceTotal,toRemove } = useContext(purchasePrice);
   console.log(product);
 
   return (
     <div className="containerCar">
       <Header />
-      <p>
-        <Link to="/">loja</Link>
-      </p>
+      <BuyMore>
+        <p>
+          <Link to="/"> <BackIcon src={backIcon} /> Voltar as compras</Link>
+        </p>
+      </BuyMore>
 
-      <div>
+      <>
         {product[0] ? (
-          
-          <div className="listPurchase">
-            <ul >
+          <ListPurchase>
+            <ul>
               {product.map((item) => (
-                <li className="items">
+                <Item className="">
                   <p>{item.name}</p>
                   <p>{item.price}</p>
-                </li>
+                  <button onClick={()=> toRemove(item.gameID,item.price)}>Remover</button>
+                </Item>
               ))}
+              <Item>
+                <p>Frete </p>
+                <p>{freight}</p>
+              </Item>
+              <Item>
+                <p>SupTotal </p>
+                <p>{price}</p>
+              </Item>
+              <Item>
+                <p>Total + frete </p>
+                <p>{priceTotal}</p>
+              </Item>
             </ul>
-          </div>
-          
+          </ListPurchase>
         ) : (
           <p>
             <Link to="/">pega um item na loja</Link>
           </p>
         )}
-      </div>
+      </>
     </div>
   );
 }
