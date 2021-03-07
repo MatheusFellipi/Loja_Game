@@ -20,9 +20,31 @@ function ShowGames() {
    }   
    setProduct((oldArr)=>[...oldArr,product])
   }
+function hadleClick() {
+  
+}
 
+function sortArr(array) {
+  return function(a, b) {
+      if (a[array] > b[array]) {
+          return 1;
+      } else if (a[array] < b[array]) {
+          return -1;
+      }
+      return 0;
+  }
+}
   return (
     <Container>
+    <button onClick={hadleClick}>
+    nome
+    </button>
+    <button onClick={hadleClick}>
+    score
+    </button>
+    <button onClick={hadleClick}>
+    precos
+    </button>
       <>
         {dadosGames.map((games)=>(
           <CardGame key={games.id}>
