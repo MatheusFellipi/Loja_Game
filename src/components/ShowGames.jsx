@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { purchasePrice } from "../context/PurchasePrice";
 import dadosGames from "../products.json";
 
@@ -12,6 +12,11 @@ import {
   CardText,
   CardGameImg,
   Button,
+  ContainerButton,
+  ContainerCard,
+  Nav,
+  Ul,
+  ContainerMain,DivButton
 } from "../styles/components/stylesShowGames";
 
 function ShowGames() {
@@ -31,10 +36,10 @@ function ShowGames() {
 
   function hadleClick(e) {
     setValue(e);
-    sortList();
+    sortLists(e);
   }
-  
-  function sortList() {
+
+  const sortLists = (value) => {
     if (value === "1") {
       dadosGames.sort(sortArr("name"));
     }
@@ -44,7 +49,7 @@ function ShowGames() {
     if (value === "3") {
       dadosGames.sort(sortArr("price"));
     }
-  }
+  };
 
   function sortArr(array) {
     return function (a, b) {
@@ -59,32 +64,56 @@ function ShowGames() {
 
   return (
     <Container>
-      <button onClick={() => hadleClick("1")}>nome</button>
-      <button onClick={() => hadleClick("2")}>score</button>
-      <button onClick={() => hadleClick("3")}>precos</button>
-      <>
-        {dados.map((games) => (
-          <CardGame key={games.id}>
-            <CardGameImg>
-              <img src={sc} alt="" />
-              <Span>
-                {" "}
-                <p>{games.score}</p>{" "}
-              </Span>
-            </CardGameImg>
+      <ContainerButton>
+        <DivButton>
+          
+        <p>Deseja ornderna por?</p>
+          <Button onClick={() => hadleClick("3")}>precos</Button>
+          <Button onClick={() => hadleClick("1")}>nome</Button>
+          <Button onClick={() => hadleClick("2")}>score</Button>
+        </DivButton>
+       
+      </ContainerButton>
+      
+      <ContainerMain>
 
-            <CardText>
-              <Title> {games.name} </Title>
-              <TitlePrice>R$ {games.price} </TitlePrice>
-              <Button
-                onClick={() => purchaseItem(games.price, games.id, games.name)}
-              >
-                comprar
-              </Button>
-            </CardText>
-          </CardGame>
-        ))}
-      </>
+        <Nav>
+          <Ul>
+            <Title>Deseja ornderna por?</Title>
+          <ContainerButton>
+            <li><Button onClick={() => hadleClick("3")}>precos</Button></li>
+            <li><Button onClick={() => hadleClick("1")}>nome</Button></li>
+            <li><Button onClick={() => hadleClick("2")}>score</Button></li>
+          </ContainerButton>
+          </Ul>
+        </Nav>
+
+        <ContainerCard>
+          {dados.map((games) => (
+            <CardGame key={games.id}>
+              <CardGameImg>
+                <img src={sc} alt="" />
+                <Span>
+                  {" "}
+                  <p>{games.score}</p>{" "}
+                </Span>
+              </CardGameImg>
+
+              <CardText>
+                <Title> {games.name} </Title>
+                <TitlePrice>R$ {games.price} </TitlePrice>
+                <Button
+                  onClick={() =>
+                    purchaseItem(games.price, games.id, games.name)
+                  }
+                >
+                  comprar
+                </Button>
+              </CardText>
+            </CardGame>
+          ))}
+        </ContainerCard>
+      </ContainerMain>
     </Container>
   );
 }

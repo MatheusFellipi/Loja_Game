@@ -36,11 +36,11 @@ function Car() {
               </Item>
               <Item>
                 <p>SupTotal </p>
-                <p>{price}</p>
+                <p>{ parseFloat(price.toFixed(2))}</p>
               </Item>
               <Item>
                 <p>Total + frete </p>
-                <p>{priceTotal}</p>
+                <p>{ parseFloat(priceTotal.toFixed(2))}</p>
               </Item>
             </ul>
           </ListPurchase>

@@ -6,16 +6,72 @@ export const Container = styled.div`
   font-weight: 400;
   color: #000;
 
-  display: flex;
-  flex-direction: column;
 `;
+
+export const ContainerMain = styled.div`
+  display:flex;
+  justify-content:center;
+`;
+export const Nav = styled.nav`
+  display: flex;
+  flex-direction:column;
+  margin-top:12rem;
+
+  width:250px;
+  height:350px;
+
+  
+  @media(max-width: 700px) {
+    display:none;
+  }
+
+
+`;
+export const Ul = styled.ul`
+  display: flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:flex-start;
+  padding:1rem;
+`;
+
+
+
+export const ContainerCard = styled.div`
+  margin: 5rem 0rem 0 0;
+  font-size: 16px;
+  font-weight: 400;
+  color: #000;
+
+  display: flex;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+  align-items:center;
+  margin-left: 10rem;
+
+  width: 1000px;
+
+  @media(max-width: 600px) {
+    display:flex;
+    flex-direction:column;
+    margin-left: -1rem;
+  }
+
+  
+`;
+
 export const CardGame = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 480px;
   height: 350px;
-  border-bottom: solid 1px
+  border: solid 1px #EBECF0;
+  border-radius:1rem;
+  margin:0.5rem;
+  :hover{
+    background:#EBECF0;
+  }
 `;
 
 export const CardGameImg = styled.div`
@@ -71,3 +127,32 @@ export const Button = styled.button`
     color:#fff;
   }
 `;
+
+export const ContainerButton = styled.div`
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  text-align:justify;
+  
+  font-size:20px;
+  
+  @media(min-width: 1080px) {
+    align-items: flex-end;
+    justify-content: center;
+  }
+`;
+
+
+export const DivButton = styled.div`
+  display: flex;
+  display:none;
+  align-items: center;
+  justify-content: center;
+  text-align:justify;
+  @media(max-width: 600px) {
+    display:block;
+  }
+
+`;
+
