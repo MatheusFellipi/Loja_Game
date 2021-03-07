@@ -17,9 +17,28 @@ export const BuyMore = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-top: 5rem;
+  margin: 5rem 2rem;
 `;
 export const BackIcon = styled.img`
   width:15px;
   height:15px;
+`;
+export const Text = styled.p`
+  font-size:20px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+`;
+export const Button = styled.button`
+  margin-top: 1rem;
+  font-size: 16px;
+  border:0;
+  border-radius:10px;
+  background-color:#E0E0DE ;
+  width:5.5rem;
+  height:2rem;
+  :howver{
+    background-color:#616160 ;
+    color:#fff;
+  }
 `;

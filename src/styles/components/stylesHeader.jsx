@@ -7,6 +7,7 @@ export const Heading = styled.header`
   padding: 1rem 1rem;
 
   background-color: #e0e0e0;
+  width:100vw;
 `;
 
 export const Imgcar = styled.img`

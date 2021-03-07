@@ -4,11 +4,12 @@ import dadosGames from "../products.json"
 
 
 import sc from "../assets/fifa-18.png"
-import {CardGame,Container,Span,Title} from "../styles/components/stylesShowGames"
+import {CardGame,Container,Span,Title,
+  TitlePrice,CardText,CardGameImg,Button} from "../styles/components/stylesShowGames"
 
 function ShowGames() {
 
-  const {setProduct,calculatePrice} = useContext(purchasePrice);
+  const {setProduct} = useContext(purchasePrice);
 
   
   const purchaseItem =(priceItem,gameId,gameName)=>{
@@ -18,8 +19,6 @@ function ShowGames() {
     price:priceItem
    }   
    setProduct((oldArr)=>[...oldArr,product])
-   calculatePrice();
-
   }
 
   return (
@@ -27,10 +26,18 @@ function ShowGames() {
       <>
         {dadosGames.map((games)=>(
           <CardGame key={games.id}>
-            <img src={sc} alt=""/>
-            <Title > {games.name} <Span >{games.score}</Span> </Title>
-            <Title >Valor: {games.price} </Title>
-            <button onClick={() => purchaseItem(games.price,games.id,games.name)}>comprar</button>
+
+            <CardGameImg>
+              <img src={sc} alt=""/>
+              <Span> <p>{games.score}</p> </Span>
+            </CardGameImg>
+
+            <CardText>
+              
+              <Title > {games.name}  </Title>
+              <TitlePrice >R$ {games.price} </TitlePrice>
+              <Button onClick={() => purchaseItem(games.price,games.id,games.name)}>comprar</Button>
+            </CardText>
           </CardGame>
         ))}
       </>

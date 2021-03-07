@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { purchasePrice } from "../context/PurchasePrice";
 import { Header } from "../components";
 
-import { ListPurchase, Item ,BuyMore,BackIcon} from "../styles/pages/stylesCar";
+import { ListPurchase, Item ,BuyMore,BackIcon,Button,Text} from "../styles/pages/stylesCar";
 import backIcon from "../assets/back.png"
 
 function Car() {
@@ -27,7 +27,7 @@ function Car() {
                 <Item className="">
                   <p>{item.name}</p>
                   <p>{item.price}</p>
-                  <button onClick={()=> toRemove(item.gameID,item.price)}>Remover</button>
+                  <Button onClick={()=> toRemove(item.gameID,item.price)}>Remover</Button>
                 </Item>
               ))}
               <Item>
@@ -45,9 +45,9 @@ function Car() {
             </ul>
           </ListPurchase>
         ) : (
-          <p>
+          <Text>
             <Link to="/">pega um item na loja</Link>
-          </p>
+          </Text>
         )}
       </>
     </div>
